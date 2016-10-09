@@ -54,8 +54,6 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             activity.failedToConnectToTheInternet();
             activity.getSwipeRefreshLayout().setRefreshing(false);
 
-            Log.e("Error", String.valueOf(linearLayout.isShown()));
-
             if (linearLayout.getVisibility() == View.GONE) {
                 btnRefresh.setVisibility(View.VISIBLE);
             }
