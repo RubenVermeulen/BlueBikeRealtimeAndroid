@@ -1,4 +1,4 @@
-package be.rubenvermeulen.blue_bike;
+package be.rubenvermeulen.android.bluebikert;
 
 /**
  * Created by ruben on 8/10/2016.

@@ -1,4 +1,4 @@
-package be.rubenvermeulen.blue_bike;
+package be.rubenvermeulen.android.bluebikert;
 
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -12,15 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class DetailsActivity extends AppCompatActivity {
 
