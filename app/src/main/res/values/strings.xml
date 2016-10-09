@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Blue-bike Real-Time</string>
     <string name="locations">Locations</string>
-    <string name="gent_sint_pieters">Ghent Sint-Pieters</string>
-    <string name="gent_dampoort">Ghent Dampoort</string>
+    <string name="gent_sint_pieters">Gent Sint-Pieters</string>
+    <string name="gent_dampoort">Gent Dampoort</string>
     <string name="capacity">Capacity</string>
     <string name="in_use">In use</string>
     <string name="available">Available</string>
-    <string name="in_maintance">In maintenance</string>
+    <string name="in_maintance">In upkeep</string>
     <string name="page_refreshed">Data fetched</string>
     <string name="page_failed_to_refresh">Its was not possible to fetch new data</string>
     <string name="failed_to_connect_to_the_internet">It was not possible to establish a connection</string>
