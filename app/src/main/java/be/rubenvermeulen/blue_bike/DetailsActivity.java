@@ -120,15 +120,6 @@ public class DetailsActivity extends AppCompatActivity {
         return swipeRefreshLayout;
     }
 
-    public void dataRefreshed() {
-        Toast toast = Toast.makeText(this, getResources().getString(R.string.page_refreshed), Toast.LENGTH_SHORT);
-        toast.show();
-    }
-    public void dataFailedToRefresh() {
-        Toast toast = Toast.makeText(this, getResources().getString(R.string.page_failed_to_refresh), Toast.LENGTH_LONG);
-        toast.show();
-    }
-
     public boolean hasInternetConnection() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();

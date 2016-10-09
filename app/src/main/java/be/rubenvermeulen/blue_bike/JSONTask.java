@@ -188,7 +188,6 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             }
 
             activity.getSwipeRefreshLayout().setRefreshing(false);
-            activity.dataRefreshed();
         } catch (JSONException e) {
             e.printStackTrace();
         }
