@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Blue-bike Real-Time</string>
+    <string name="locations">Lieux</string>
+    <string name="gent_sint_pieters">Gent Sint-Pieters</string>
+    <string name="gent_dampoort">Gent Dampoort</string>
+    <string name="capacity">Capacité</string>
+    <string name="in_use">En usage</string>
+    <string name="available">Disponible</string>
+    <string name="in_maintance">En maintenace</string>
+    <string name="page_refreshed">Data opgehaald</string>
+    <string name="page_failed_to_refresh">Il est impossible pour ramasser les données nouveaux</string>
+    <string name="failed_to_connect_to_the_internet">Il est impossible d\'établir une connection</string>
+    <string name="refresh">Renouveler</string>
+    <string name="last_checked">Dernière modification</string>
+    <string name="show_map">Montrer la carte</string>
+</resources>
