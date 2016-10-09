@@ -2,6 +2,7 @@ package be.rubenvermeulen.android.bluebikert;
 
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -53,7 +54,9 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             activity.failedToConnectToTheInternet();
             activity.getSwipeRefreshLayout().setRefreshing(false);
 
-            if ( ! linearLayout.isShown()) {
+            Log.e("Error", String.valueOf(linearLayout.isShown()));
+
+            if (linearLayout.getVisibility() == View.GONE) {
                 btnRefresh.setVisibility(View.VISIBLE);
             }
 
