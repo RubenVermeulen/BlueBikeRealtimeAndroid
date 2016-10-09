@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Blue-bike Real-Time</string>
+    <string name="app_name" translatable="false">Blue-bike RT</string>
     <string name="locations">Locations</string>
-    <string name="gent_sint_pieters">Gent Sint-Pieters</string>
-    <string name="gent_dampoort">Gent Dampoort</string>
+    <string name="gent_sint_pieters">Gent-Sint-Pieters</string>
+    <string name="gent_dampoort">Gent-Dampoort</string>
     <string name="capacity">Capacity</string>
     <string name="in_use">In use</string>
     <string name="available">Available</string>
