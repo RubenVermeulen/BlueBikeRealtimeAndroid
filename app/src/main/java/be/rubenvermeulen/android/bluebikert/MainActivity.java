@@ -4,49 +4,51 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView tvJson;
-
-    private ExpandableListView expandableListView;
-    private ExpandableListAdapter expandableListAdapter;
-    private List<String> expandableListTitle;
-    private HashMap<String, List<String>> expandableListDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // buttons
-        Button locationOne = (Button) findViewById(R.id.locationOne);
-        Button locationTwo = (Button) findViewById(R.id.locationTwo);
+        final Map<String, String> keyValues = new TreeMap<>();
 
-        // event listeners
-        locationOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivityDetails(
-                        getResources().getString(R.string.gent_sint_pieters),
-                        "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsensintpieters.json"
-                );
-            }
-        });
+        keyValues.put("Gent-Sint-Pieters", "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsensintpieters.json");
+        keyValues.put("Gent-Dampoort", "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsendampoort.json");
 
-        locationTwo.setOnClickListener(new View.OnClickListener() {
+        ListView listView = (ListView) findViewById(R.id.list);
+        ListAdapter adapter = new ArrayAdapter<>(this, R.layout.main_list_item, R.id.value, new ArrayList<>(keyValues.keySet()));
+
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView tv = (TextView) view.findViewById(R.id.value);
+                String name = tv.getText().toString();
+
                 startActivityDetails(
-                        getResources().getString(R.string.gent_dampoort),
-                        "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsendampoort.json"
+                        name,
+                        keyValues.get(name)
                 );
             }
         });
@@ -59,4 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
+
+
 }
