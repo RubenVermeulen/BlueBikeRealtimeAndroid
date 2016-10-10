@@ -1,7 +1,5 @@
 <resources>
     <string name="locations">Lieux</string>
-    <string name="gent_sint_pieters">Gent Sint-Pieters</string>
-    <string name="gent_dampoort">Gent Dampoort</string>
     <string name="capacity">Capacité</string>
     <string name="in_use">En usage</string>
     <string name="available">Disponible</string>
