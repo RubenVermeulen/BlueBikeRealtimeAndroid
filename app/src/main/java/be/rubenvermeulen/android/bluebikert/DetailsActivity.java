@@ -124,6 +124,11 @@ public class DetailsActivity extends AppCompatActivity {
         toast.show();
     }
 
+    public void somethingWentWrong() {
+        Toast toast = Toast.makeText(this, getResources().getString(R.string.could_not_load_data), Toast.LENGTH_LONG);
+        toast.show();
+    }
+
     public void setGmmIntentUri(Uri gmmIntentUri) {
         this.gmmIntentUri = gmmIntentUri;
     }

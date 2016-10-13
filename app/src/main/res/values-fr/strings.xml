@@ -10,4 +10,5 @@
     <string name="refresh">Renouveler</string>
     <string name="last_checked">Dernière modification</string>
     <string name="show_map">Montrer la carte</string>
+    <string name="could_not_load_data">Il était impossible de chargement des données</string>
 </resources>

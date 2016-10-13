@@ -2,6 +2,7 @@ package be.rubenvermeulen.android.bluebikert;
 
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -13,11 +14,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -37,6 +40,7 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
     private DetailsActivity activity;
     private LinearLayout linearLayout;
     private Button btnRefresh;
+    private Exception exception;
 
 
     public JSONTask(DetailsActivity activity) {
@@ -96,12 +100,8 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             return jsonObject;
         } catch (MalformedURLException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (IOException | JSONException | InterruptedException e) {
+            exception = e;
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -123,11 +123,16 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
     protected void onPostExecute(JSONObject s) {
         super.onPostExecute(s);
 
+
         TextView tvTitle = (TextView) activity.findViewById(R.id.title_details);
         TextView tvDescription = (TextView) activity.findViewById(R.id.description);
         TextView tvLastUpdated = (TextView) activity.findViewById(R.id.lastUpdated);
 
         try {
+            if (exception != null) {
+                throw exception;
+            }
+
             JSONArray coordinates = s.getJSONObject("geometry").getJSONArray("coordinates");
             JSONObject properties = s.getJSONObject("properties");
             JSONArray attributes = properties.getJSONArray("attributes");
@@ -181,10 +186,13 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             if (btnRefresh.isShown()) {
                 btnRefresh.setVisibility(View.GONE);
             }
-
-            activity.getSwipeRefreshLayout().setRefreshing(false);
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            activity.somethingWentWrong();
+        }
+        finally {
+            activity.getSwipeRefreshLayout().setRefreshing(false);
         }
     }
 }
