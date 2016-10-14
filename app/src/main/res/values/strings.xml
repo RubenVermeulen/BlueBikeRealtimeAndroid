@@ -5,7 +5,6 @@
     <string name="in_use">In use</string>
     <string name="available">Available</string>
     <string name="in_maintance">In upkeep</string>
-    <string name="page_refreshed">Data fetched</string>
     <string name="page_failed_to_refresh">Its was not possible to fetch new data</string>
     <string name="failed_to_connect_to_the_internet">It was not possible to establish a connection</string>
     <string name="refresh">Refresh</string>

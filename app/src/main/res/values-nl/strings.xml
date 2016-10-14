@@ -4,7 +4,6 @@
     <string name="in_use">In gebruik</string>
     <string name="available">Beschikbaar</string>
     <string name="in_maintance">In onderhoud</string>
-    <string name="page_refreshed">Data opgehaald</string>
     <string name="page_failed_to_refresh">Het was niet mogelijk om nieuwe data te laden</string>
     <string name="failed_to_connect_to_the_internet">Er kon geen verbinding gemaakt worden met het internet</string>
     <string name="refresh">Refresh</string>
