@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Blue-bike RT</string>
+    <string name="app_name" translatable="false">Blue-bike realtime</string>
     <string name="locations">Locations</string>
     <string name="capacity">Capacity</string>
     <string name="in_use">In use</string>
