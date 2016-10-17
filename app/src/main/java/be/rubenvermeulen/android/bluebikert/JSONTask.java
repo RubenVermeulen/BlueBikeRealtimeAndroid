@@ -38,15 +38,11 @@ import javax.net.ssl.HttpsURLConnection;
 public class JSONTask extends AsyncTask<String, Void, JSONObject> {
 
     private DetailsActivity activity;
-    private LinearLayout linearLayout;
-    private Button btnRefresh;
     private Exception exception;
 
 
     public JSONTask(DetailsActivity activity) {
         this.activity = activity;
-        linearLayout = (LinearLayout) activity.findViewById(R.id.activity_details);
-        btnRefresh = (Button) activity.findViewById(R.id.refreshDetails);
     }
 
     @Override
@@ -57,8 +53,8 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             activity.failedToConnectToTheInternet();
             activity.getSwipeRefreshLayout().setRefreshing(false);
 
-            if (linearLayout.getVisibility() == View.GONE) {
-                btnRefresh.setVisibility(View.VISIBLE);
+            if (activity.linearLayout.getVisibility() == View.GONE) {
+                activity.btnRefresh.setVisibility(View.VISIBLE);
             }
 
             cancel(true);
@@ -123,11 +119,6 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
     protected void onPostExecute(JSONObject s) {
         super.onPostExecute(s);
 
-
-        TextView tvTitle = (TextView) activity.findViewById(R.id.title_details);
-        TextView tvDescription = (TextView) activity.findViewById(R.id.description);
-        TextView tvLastUpdated = (TextView) activity.findViewById(R.id.lastUpdated);
-
         try {
             if (exception != null) {
                 throw exception;
@@ -143,12 +134,12 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             )));
 
             // Details
-            tvTitle.setText(activity.getName());
-            tvDescription.setText(properties.getString("description"));
+            activity.tvTitle.setText(activity.getName());
+            activity.tvDescription.setText(properties.getString("description"));
 
             String currentDateTime = DateFormat.getDateTimeInstance().format(new Date());
 
-            tvLastUpdated.setText(activity.getResources().getString(R.string.last_checked) + ": " + currentDateTime);
+            activity.tvLastUpdated.setText(activity.getResources().getString(R.string.last_checked) + ": " + currentDateTime);
 
             // ListView
             ListView listView = (ListView) activity.findViewById(R.id.list);
@@ -179,12 +170,12 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
 
             listView.setAdapter(adapter);
 
-            if ( ! linearLayout.isShown()) {
-                linearLayout.setVisibility(View.VISIBLE);
+            if ( ! activity.linearLayout.isShown()) {
+                activity.linearLayout.setVisibility(View.VISIBLE);
             }
 
-            if (btnRefresh.isShown()) {
-                btnRefresh.setVisibility(View.GONE);
+            if (activity.btnRefresh.isShown()) {
+                activity.btnRefresh.setVisibility(View.GONE);
             }
         } catch (JSONException e) {
             e.printStackTrace();

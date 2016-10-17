@@ -12,19 +12,33 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class DetailsActivity extends AppCompatActivity {
 
+    @BindView(R.id.swipeRefresh) SwipeRefreshLayout swipeRefreshLayout;
+    @BindView(R.id.title_details) TextView tvTitle;
+    @BindView(R.id.description) TextView tvDescription;
+    @BindView(R.id.lastUpdated) TextView tvLastUpdated;
+    @BindView(R.id.activity_details) LinearLayout linearLayout;
+    @BindView(R.id.refreshDetails) Button btnRefresh;
+
     private String name;
     private String url;
-    private SwipeRefreshLayout swipeRefreshLayout;
     private Uri gmmIntentUri = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+        ButterKnife.bind(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -92,8 +106,6 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void initializeRefreshOnSwipe() {
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
-
         swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(this, R.color.colorAccent));
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
