@@ -10,4 +10,5 @@
     <string name="last_checked">Laatst gecontroleerd</string>
     <string name="show_map">Toon kaart</string>
     <string name="could_not_load_data">Het was niet mogelijk om de gegevens te laden</string>
+    <string name="search_hint">Zoek stations</string>
 </resources>
