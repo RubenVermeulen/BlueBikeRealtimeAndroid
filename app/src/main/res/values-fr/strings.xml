@@ -4,10 +4,10 @@
     <string name="in_use">En usage</string>
     <string name="available">Disponible</string>
     <string name="in_maintance">En maintenace</string>
-    <string name="page_failed_to_refresh">Il est impossible pour ramasser les données nouveaux</string>
-    <string name="failed_to_connect_to_the_internet">Il était impossible d\'établir une connection</string>
+    <string name="page_failed_to_refresh">Il était impossible de charger des nouvelles données</string>
+    <string name="failed_to_connect_to_the_internet">Il était impossible détablir une connection</string>
     <string name="refresh">Renouveler</string>
     <string name="last_checked">Dernière modification</string>
     <string name="show_map">Montrer la carte</string>
-    <string name="could_not_load_data">Il était impossible de chargement des données</string>
+    <string name="could_not_load_data">Il était impossible de charger les données</string>
 </resources>
