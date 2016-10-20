@@ -27,10 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Map<String, String> keyValues = new TreeMap<>();
-
-        keyValues.put("Gent-Sint-Pieters", "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsensintpieters.json");
-        keyValues.put("Gent-Dampoort", "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsendampoort.json");
+        final Map<String, String> keyValues = Locations.locations();
 
         ListView listView = (ListView) findViewById(R.id.list);
         ListAdapter adapter = new ArrayAdapter<>(this, R.layout.main_list_item, R.id.value, new ArrayList<>(keyValues.keySet()));

@@ -10,5 +10,7 @@
     <string name="last_checked">Dernière modification</string>
     <string name="show_map">Montrer la carte</string>
     <string name="could_not_load_data">Il était impossible de chargement des données</string>
-    <string name="search_hint">Chercher les garres</string>
+    <string name="search_hint">Cherche les emplacements</string>
+    <string name="results">Résultats</string>
+    <string name="no_results">Il n\'y a pas des résultats</string>
 </resources>
