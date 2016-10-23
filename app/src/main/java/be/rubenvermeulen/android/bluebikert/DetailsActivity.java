@@ -40,12 +40,19 @@ public class DetailsActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         Intent intent = getIntent();
 
         name = intent.getStringExtra("name");
         url = intent.getStringExtra("url");
+
+        if (getSupportActionBar() != null) {
+            // Back button action bar
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+            // Title action bar
+            getSupportActionBar().setTitle(name);
+        }
 
         initializeRefreshOnSwipe();
     }
