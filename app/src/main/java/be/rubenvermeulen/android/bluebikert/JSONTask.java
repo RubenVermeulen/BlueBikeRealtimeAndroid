@@ -147,8 +147,9 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
             List<CustomObject> values = new ArrayList<>();
 
             int[] priorities = new int[] {4,2,1,3};
+            int priority;
 
-            for (int i = 0; i < attributes.length(); i++) {
+            for (int i = 0; i < 4; i++) {
                 JSONObject attr = attributes.getJSONObject(i);
 
                 values.add(new CustomObject(
@@ -180,6 +181,8 @@ public class JSONTask extends AsyncTask<String, Void, JSONObject> {
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (Exception e) {
+            e.printStackTrace();
+
             activity.somethingWentWrong();
         }
         finally {

@@ -2,8 +2,12 @@ package be.rubenvermeulen.android.bluebikert;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -46,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
                 );
             }
         });
+
+        SharedPreferences sharedPreferences = getPreferences(Context.MODE_PRIVATE);
+        boolean hasReadUpdates = sharedPreferences.getBoolean("hasReadUpdates", false);
+
+        if (! hasReadUpdates) {
+            updates();
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("hasReadUpdates", true);
+            editor.apply();
+        }
     }
 
     private void startActivityDetails(String name, String url) {
@@ -66,5 +81,26 @@ public class MainActivity extends AppCompatActivity {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
         return true;
+    }
+
+    private void updates() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+
+        dialog.setTitle(R.string.updates_title)
+                .setMessage(R.string.updates_content)
+                .setPositiveButton(R.string.download, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=be.rubenvermeulen.android.bluebike"));
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 }
