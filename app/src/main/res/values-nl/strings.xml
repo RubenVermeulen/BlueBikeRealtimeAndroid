@@ -13,4 +13,8 @@
     <string name="results">Resultaten</string>
     <string name="no_results">Geen resultaten</string>
     <string name="search_hint">Zoek locaties</string>
+    <string name="close">Sluiten</string>
+    <string name="download">Download</string>
+    <string name="updates_content">De officiële Blue-bike app is nu beschikbaar in de Play Store.\n\nBekijk het aantal beschikbare fietsen voor alle Blue-bike locaties in België.</string>
+    <string name="updates_title">Updates</string>
 </resources>

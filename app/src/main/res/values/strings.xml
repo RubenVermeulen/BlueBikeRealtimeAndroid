@@ -14,4 +14,8 @@
     <string name="search_hint">Search locations</string>
     <string name="results">Results</string>
     <string name="no_results">No results</string>
+    <string name="close">Close</string>
+    <string name="download">Download</string>
+    <string name="updates_content">The official Blue-bike app is now available in the Play Store.\n\nSee all available bikes for all Blue-bike locations in Belgium.</string>
+    <string name="updates_title">Updates</string>
 </resources>
