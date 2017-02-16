@@ -1,7 +1,8 @@
 # Blue-bike realtime Android
-Android app for Blue-bike realtime
+Android app for Blue-bike realtime. The app gives realtime information about all Blue-bikes locations in Ghent.
 
-# Copyright
-Copyright © 2016 by Ruben Vermeulen
+This app is not the official Blue-bike app.
 
-All rights reserved.
+---
+
+© 2016 Ruben Vermeulen ALL RIGHTS RESERVED
